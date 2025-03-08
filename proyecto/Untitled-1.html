@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poemas para Vale 💖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffb3c1;
+            color: #fff;
+            padding: 50px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        p {
+            font-size: 1.5em;
+            width: 70%;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: #ff4d6d;
+        }
+
+        /* Animación de corazones */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 75%, 20% 100%, 0% 35%);
+            animation: float 5s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>💖 Poema para Vale 💖</h1>
+    <p id="poema"></p>
+
+    <script>
+        // Lista de 10 poemas de amor
+        const poemas = [
+            "Eres mi sol en los días grises, mi luna en las noches oscuras. Cada palabra tuya es un suspiro de amor.",
+            "Si el amor fuera un océano, el mío por ti no tendría orillas. Eres la brisa que acaricia mi alma.",
+            "Tus ojos son estrellas que iluminan mi camino, tu voz es la melodía que calma mi ser.",
+            "Cada latido de mi corazón lleva tu nombre, cada suspiro es un verso dedicado a ti.",
+            "Eres el sueño que nunca quiero despertar, el susurro que me llena de paz y felicidad.",
+            "Si pudiera contar las estrellas, no serían suficientes para decirte cuánto te amo.",
+            "Eres el poema que mis labios recitan en cada amanecer, la flor más hermosa de mi jardín.",
+            "En cada rincón de mi alma, en cada latido de mi corazón, solo hay un nombre: Vale.",
+            "Tu amor es el refugio donde mi corazón encuentra paz, la melodía que quiero escuchar siempre.",
+            "Si el tiempo se detuviera cuando estoy contigo, viviría eternamente en un solo instante de amor."
+        ];
+
+        // Seleccionar un poema aleatorio
+        document.getElementById("poema").innerText = poemas[Math.floor(Math.random() * poemas.length)];
+
+        // Generar corazones animados
+        function crearCorazones() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(crearCorazones, 300);
+    </script>
+</body>
+</html>
